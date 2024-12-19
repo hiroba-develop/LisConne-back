@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  app:
+    image: gradle:8.11.1-jdk21
+    working_dir: /app
+    volumes:
+      - ./build/libs:/app/build/libs  # ホストのビルド成果物をコンテナにマウント
+    ports:
+      - "8080:8080"
+    command: ["java", "-jar", "/app/build/libs/lisconne-back-0.0.1-SNAPSHOT.jar"]
